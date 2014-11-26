@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font: 300 23px/33px $perpetua-bold, Helvetica, Arial;
+  color: $gray;
+  margin: 0;
+  position: relative;
+  //background: url("../img/ice_age.png");
+  background: url(http://subtlepatterns.com/patterns/rockywall.png);
+}
+
+main {
+  display: block;
+}
+
+.col {
+  float: left;
+}
+
+.grid .col {
+  width: 704px;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.no-margin {
+  margin: 0;
+}

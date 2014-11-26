@@ -1,0 +1,37 @@
+form, fieldset {
+  height: 92.6%;
+}
+
+legend, fieldset {
+  border: none;
+}
+
+input, select, button {
+  border: none;
+  width: 100%;
+}
+
+input {
+  height: 25px;
+}
+
+.error {
+  border: 1px solid red;
+  color: red;
+
+  &::-webkit-input-placeholder {
+   color: red;
+  }
+
+  &:-moz-placeholder { /* Firefox 18- */
+    color: red;
+  }
+
+  &::-moz-placeholder {  /* Firefox 19+ */
+   color: red;
+  }
+
+  &:-ms-input-placeholder {
+   color: red;
+  }
+}

@@ -1,0 +1,44 @@
+/* Dragdealer CSS */
+
+.content-scroller .dragdealer {
+  background: #e1e1e1;
+  height: 40px;
+  border-radius: 3px;
+}
+
+.content-scroller .dragdealer {
+  position: relative;
+  height: 30px;
+  background: #EEE;
+}
+.content-scroller .dragdealer .handle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+.content-scroller .dragdealer .handle.bar {
+  width: 392px;
+  height: 20px;
+  background: $light-green;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+}
+
+/* Content slider */
+
+.content-scroller .dragdealer {
+  width: 100%;
+  height: 20px;
+}
+
+.content-scroller .content-mask {
+  margin: 0 55px 0 0;
+}
+.content-scroller .content-body {
+  overflow: hidden;
+  background: $white;
+  width: 3280px;
+  height: 100%;
+}

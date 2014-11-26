@@ -1,0 +1,47 @@
+.footer {
+  position: relative;
+  h2 {
+    position: relative;
+    top: -370px;
+
+    background: url("../img/footer-bg.png") no-repeat top center;
+    height: 155px;
+    text-indent: -9999px;
+    @include transition(all, 1.5s, ease);
+  }
+  .pulse {
+    opacity:0;
+    position: absolute;
+    top: -376px;
+    left: 152px;
+    display: block;
+    width: 161px;
+    height: 162px;
+
+    background: url("../img/discover-pulse-blue-dot.png") no-repeat center 0;
+    z-index: 5;
+    -webkit-animation: pulsate 1.5s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.0;
+
+    &:before {
+      display: block;
+      width: 161px;
+      height: 162px;
+
+      content: " ";
+      background: url("../img/discover-pulse-blue.png") no-repeat center 0;
+    }
+
+    &:after {
+      position: absolute;
+      top: 0;
+      display: block;
+      width: 161px;
+      height: 162px;
+
+      content: " ";
+      background: url("../img/discover-pulse-green.png") no-repeat center 0;
+    }
+  }
+}
