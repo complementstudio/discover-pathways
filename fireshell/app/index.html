@@ -16,14 +16,14 @@
 
   </head>
   <body>
-    <section class="main grid" role="main">
+    <section id="wrapper" class="main grid" role="main">
       <header class="header container" role="banner">
         <nav></nav>
       </header>
 
-      <section class="main">
-        <section class="discover-section">
-          <header class="container">
+      <section id="main" class="main">
+        <section id="discover" class="discover-section">
+          <header class="container scrolltrack">
             <h1>Discover Yeshiva University</h1>
             <span class="pulse" data-0="opacity:0; transform:rotate(0deg);" data-235="opacity:1; transform:rotate(360deg)"></span>
           </header>
@@ -77,7 +77,20 @@
             </div>
           </section>
         </section>
-        <section class="explore-section container">
+
+        <section id="explore" class="explore-section container scrolltrack">
+          <div id="sidebar">
+            <div id="nav-anchor"></div>
+            <nav>
+              <ul>
+                <li><a class="explore-nav" href="#explore"><span class="bubble">Explore</span></a></li>
+                <li><a class="afford-nav" href="#afford"><span class="bubble">Afford</span></a></li>
+                <li><a class="visit-nav" href="#visit"><span class="bubble">Visit</span></a></li>
+                <li><a class="nextsteps-nav" href="#nextsteps"><span class="bubble">Next Steps</span></a></li>
+              </ul>
+            </nav>
+          </div><!-- /sidebar -->
+
           <header>
             <h1 data-890="opacity:0; margin-top:-40px;" data-1005="opacity:1; margin-top:60px;" >Explore <span class="sunburst" data-815="transform: rotate(7deg);" data-1052="transform: rotate(360deg);"></span></h1>
             <p class="main-p" data-1127="opacity:0;margin-top:-25px;" data-1136="opacity:1;margin-top: 20px;">Discover all the academics opportunities that YU offers, our admissions requirements and a constant stream of activities that enriches<br /> both your academic and extracurricular life.</p>
@@ -209,7 +222,7 @@
           </blockquote>
         </section>
 
-        <section class="afford-section container">
+        <section id="afford" class="afford-section container scrolltrack">
           <header>
             <h1 class="no-margin" data-3688="opacity:0;" data-3847="opacity:1;">Afford <span class="d-shape" data-3892="transform:rotateY(-90deg);margin-left:320px" data-4042="transform:rotateY(0deg);margin-left:390px;"></span></h1>
             <p class="main-p" data-3650="opacity:0;" data-3944="opacity:1;">Did you know that over 75% of our students receive financial assistance? From our scholarship programs to state and federal programs, we work with you as much as possible to make a YU education affordable.</p>
@@ -277,7 +290,7 @@
           </section>
         </section>
 
-        <section class="visit-section container">
+        <section id="visit" class="visit-section container scrolltrack">
           <header>
             <h1 class="no-margin" data-5118="opacity:0; top:-90px" data-5298="opacity:1; top:0;">Visit <span class="visit-pointer" data-5345="top:-40px;" data-5356="top:0px;" data-5528="top:-40px;" data-5633="top:0;" data-5663="top:-40px;" data-5763="top:0;"></span></h1>
             <p class="main-p" data-5359="opacity:0;" data-5523="opacity:1;">Whether it’s you coming to visit YU or YU coming to visit you, there are plenty of opportunities for you to see firsthand what your life would be like as a student here.</p>
@@ -372,7 +385,7 @@
           </section>
         </section>
 
-        <section class="next-steps container">
+        <section id="nextsteps" class="next-steps container scrolltrack">
           <header>
             <h1 data-9317="transform: rotateX(-180deg);" data-9532="transform: rotateX(0deg);">Next Steps</h1>
             <p class="main-p" data-9519="opacity:0; margin-top:-80px;" data-9591="opacity:1;margin-top:0;">Congratulations, you’re near the end of your Discover YU pathway! But don’t stop now. Here are some important next steps.</p>
@@ -412,7 +425,7 @@
           <a href="https://app.applyyourself.com/AYApplicantLogin/fl_ApplicantLogin.asp?id=yu-u" class="cta-apply pull-right fa-arrow-circle-o-right" data-10279="transform: rotateX(-180deg);" data-10465="transform: rotateX(0deg);">Apply Now</a>
         </section>
       </section>
-      <footer class="footer container" data-10789="opacity:0;" data-10984="opacity:1;">
+      <footer id="footer" class="footer container" data-10789="opacity:0;" data-10984="opacity:1;">
         <h2>Discover Yeshiva University</h2>
         <span class="pulse" data-0="opacity:0; transform:rotate(0deg);" data-11572="opacity:1; transform:rotate(360deg)"></span>
       </footer>
@@ -426,7 +439,7 @@
                 -671 0 l
                 0 285 l
                 695 0 l
-                0 1961 l
+                0 1871 l
                 -1735 0 l
                 0 2295 l
                 1730 0 l
@@ -434,7 +447,7 @@
                 -760 0 l
                 0 1125 l
                 -700 0 l
-                0 550 l
+                0 590 l
                 1485 0 l
                 0 1460 l
                 -1440 0 l
@@ -446,7 +459,7 @@
                 1420 0 l
                 0 1420 l
                 -1505 0 l
-                0 1135
+                0 1278
               ">
             </path>
           </svg>
@@ -461,6 +474,8 @@
     <script type="text/javascript" src="assets/components/imagesloaded.pkgd.min.js"></script>
     <script type="text/javascript" src="assets/components/masonry-horizontal.js"></script>
     <script type="text/javascript" src="assets/components/packery-mode.pkgd.js"></script>
+    <script type="text/javascript" src="assets/components/jquery.scrollto.js"></script>
+    <script type="text/javascript" src="assets/components/cookie.js"></script>
 
     <script src="assets/js/scripts.min.js"></script>
   </body>

@@ -6,11 +6,80 @@
  * @version 1.1.0
  * Copyright 2014.  licensed.
  */
+
+/*jshint -W108 */
+/*jshint -W109 */
+
 (function ($) {
 
   'use strict';
 
-  /* globals Dragdealer, skrollr, getCookie */
+  /* Floating Nav */
+
+  /**
+     * This part does the "fixed navigation after scroll" functionality
+     * We use the jQuery function scroll() to recalculate our variables as the
+     * page is scrolled/
+     */
+  $(window).scroll(function(){
+    var windowTop = $(window).scrollTop() + 120; // the "12" should equal the margin-top value for nav.stick
+    var divTop = $('#nav-anchor').offset().top;
+
+    if (windowTop > divTop) {
+      $('nav').addClass('stick');
+    } else {
+      $('nav').removeClass('stick');
+    }
+  });
+
+  /**
+   * This part causes smooth scrolling using scrollto.js
+   * We target all a tags inside the nav, and apply the scrollto.js to it.
+   */
+  $('nav a').click(function(evn){
+    evn.preventDefault();
+    $('html,body').scrollTo(this.hash, this.hash);
+  });
+
+  /**
+   * This part handles the highlighting functionality.
+   * We use the scroll functionality again, some array creation and
+   * manipulation, class adding and class removing, and conditional testing
+   */
+  var aChildren = $('nav li').children(); // find the a children of the list items
+  var aArray = []; // create the empty aArray
+  for (var i=0; i < aChildren.length; i++) {
+    var aChild = aChildren[i];
+    var ahref = $(aChild).attr('href');
+    aArray.push(ahref);
+  } // this for loop fills the aArray with attribute href values
+
+  $(window).scroll(function(){
+    var windowPos = $(window).scrollTop(); // get the offset of the window from the top of page
+    var windowHeight = $(window).height(); // get the height of the window
+    var docHeight = $(document).height();
+
+    for (var i=0; i < aArray.length; i++) {
+      var theID = aArray[i];
+      var divPos = $(theID).offset().top; // get the offset of the div from the top of page
+      var divHeight = $(theID).height(); // get the height of the div in question
+      if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
+        $("a[href='" + theID + "']").addClass('nav-active');
+      } else {
+        $("a[href='" + theID + "']").removeClass('nav-active');
+      }
+    }
+
+    if(windowPos + windowHeight === docHeight) {
+      if (!$('nav li:last-child a').hasClass('nav-active')) {
+        var navActiveCurrent = $('.nav-active').attr('href');
+        $("a[href='" + navActiveCurrent + "']").removeClass('nav-active');
+        $('nav li:last-child a').addClass('nav-active');
+      }
+    }
+  });
+
+/* globals Dragdealer, skrollr */
 
   var $container = $('.content-body').imagesLoaded( function() {
     $container.isotope({
@@ -45,10 +114,10 @@
           return 1-p;
         }
       },
-      render: function(data) {
+      /*render: function(data) {
         //Log the current scroll position.
         console.log(data.curTop);
-      }
+      }*/
     });
 
     // Play Video only when visible
@@ -77,51 +146,22 @@
 
   // Checkmarks
 
-  var cookieUtils,
-  escape,
-  unescape;
-
-  cookieUtils = {
-    getCookie: function (name) {
-      var start = document.cookie.indexOf(name + '=');
-      var len = start + name.length + 1;
-      if ((!start) && (name !== document.cookie.substring(0, name.length))) {
-        return null;
-      }
-      if (start === -1) { return null; }
-      var end = document.cookie.indexOf(';', len);
-      if (end === -1) { end = document.cookie.length;}
-      return unescape(document.cookie.substring(len, end));
-    },
-    setCookie: function (name, value, expires, path, domain, secure) {
-      var today = new Date();
-      today.setTime(today.getTime());
-      if (expires) {
-        expires = expires * 1000 * 60 * 60 * 24;
-      }
-      var expiresDate = new Date(today.getTime() + (expires));
-      document.cookie = name + '=' + escape(value) +
-          ((expires) ? ';expires=' + expiresDate.toGMTString() : '') + //expires.toGMTString()
-      ((path) ? ';path=' + path : '') +
-      ((domain) ? ';domain=' + domain : '') +
-      ((secure) ? ';secure' : '');
-    },
-    deleteCookie: function (name, path, domain) {
-      if (getCookie(name)) {
-        document.cookie = name + '=' +
-          ((path) ? ';path=' + path : '') +
-          ((domain) ? ';domain=' + domain : '') + ';expires=Thu, 01-Jan-1970 00:00:01 GMT';
-      }
-    }
-  };
-
   var $checkmarks = $('.checklist li');
 
-  $($checkmarks).each(function() {
+  // Set Cookie
+
+  $($checkmarks).each(function(index) {
+    var checked = 'checked',
+    checkedItems = [
+      {'test': 'Matt'}
+    ],
+    jsonChecklist = JSON.stringify(checkedItems);
+
     $(this).on('click', function(){
       $(this).toggleClass('checked');
-      console.log('checked');
-      cookieUtils.setCookie('yeshivaChecklist', new Date(), 'complementstudioreview.com/yeshiva/discovery-pathways/' );
+      checkedItems.push({'id':index, 'checked':checked});
+      console.log(jsonChecklist);
+      $.cookie('yeshivaChecklist', jsonChecklist, { expires: 7 });
     });
   });
 
