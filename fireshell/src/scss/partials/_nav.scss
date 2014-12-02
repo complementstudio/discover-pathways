@@ -70,12 +70,11 @@ nav .bubble {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  border: $bubbleborder solid 1px;
   text-align: center;
   font-family: 'AvenirLT-Black';
 }
 
-nav bubble:after {
+nav .bubble:after {
   content: '';
   position: absolute;
   border-style: solid;
@@ -93,7 +92,7 @@ nav .bubble:before {
   position: absolute;
   border-style: solid;
   border-width: 15px 15px 15px 0;
-  border-color: transparent $bubbleborder;
+  border-color: transparent $bubblebg;
   display: block;
   width: 0;
   z-index: 0;

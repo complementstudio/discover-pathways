@@ -200,21 +200,20 @@ nav .bubble {
   width: 190px;
   height: 70px;
   padding: 17px;
-  background: #EEE;
+  background: #DDD;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  border: #d6d6d6 solid 1px;
   text-align: center;
   font-family: 'AvenirLT-Black';
 }
 
-nav bubble:after {
+nav .bubble:after {
   content: '';
   position: absolute;
   border-style: solid;
   border-width: 15px 15px 15px 0;
-  border-color: transparent #EEE;
+  border-color: transparent #DDD;
   display: block;
   width: 0;
   z-index: 1;
@@ -227,7 +226,7 @@ nav .bubble:before {
   position: absolute;
   border-style: solid;
   border-width: 15px 15px 15px 0;
-  border-color: transparent #d6d6d6;
+  border-color: transparent #DDD;
   display: block;
   width: 0;
   z-index: 0;
@@ -1791,6 +1790,24 @@ nav.stick {
 .checklist.left a:hover, .checklist.right a:hover {
   color: #555555;
   border: none;
+}
+
+.checklist li input {
+  position: absolute;
+  width: 45px;
+  height: 40px;
+  z-index: 50;
+  top: -11px;
+  opacity: 0;
+}
+
+.checklist.left li input {
+  left: 6px;
+  top: 1px;
+}
+
+.checklist.right li input {
+  right: 0;
 }
 
 .checklist.left li {

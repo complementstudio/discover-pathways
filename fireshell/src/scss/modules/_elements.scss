@@ -567,6 +567,24 @@
   }
 }
 
+.checklist li input {
+  position: absolute;
+  width: 45px;
+  height: 40px;
+  z-index: 50;
+  top: -11px;
+  opacity: 0;
+}
+
+.checklist.left li input {
+  left: 6px;
+  top: 1px;
+}
+
+.checklist.right li input {
+  right: 0;
+}
+
 .checklist.left {
   li {
     padding: 0 0 0 75px;
